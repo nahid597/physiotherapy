@@ -1,0 +1,48 @@
+<div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <img id="topimage" class="image" src="assets/images/physioex.jpg" alt="">
+        </div>
+    </div>
+    <div id="homePage" class="row">
+        <div class="col-sm-4">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 40%;">
+                                search
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>
+                        <input class="form-control" ngModel #query="ngModel" (keyup)="filter(query.value)" type="text" placeholder="Enter keywords here">
+                    </p>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 40%;">
+                                conditions
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="conditions">
+                        <p *ngFor="let cond of conditions">
+                            <mat-radio-button [value]="1" (click)="filterusingcondition($event.target.innerText)">{{cond}}</mat-radio-button>
+                        </p>
+
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </div>
+        <div class="col-sm-8">
+            <p>here navbar content</p>
+        </div>
+    </div>
+
+</div>

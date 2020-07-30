@@ -1,0 +1,22 @@
+#topimage {
+    height: 100px;
+    width: 100%;
+}
+
+#homePage {
+    margin: 10px;
+}
+
+#searchbutton {
+    width: 100%;
+}
+
+#searchsection {
+    width: 100%;
+}
+
+#conditions {
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+}
