@@ -11,32 +11,95 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h5 style="margin-left: 40%;">
+                            <h5 style="margin-left: 30%;">
                                 search
                             </h5>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <p>
-                        <input class="form-control" ngModel #query="ngModel" (keyup)="filter(query.value)" type="text" placeholder="Enter keywords here">
-                    </p>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="/searchforexercise"> search for exercise </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="/showsearchexample"> show examples </a>
                 </mat-expansion-panel>
 
                 <mat-expansion-panel style="margin-top: 5px;">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h5 style="margin-left: 40%;">
-                                conditions
+                            <h5 style="margin-left: 30%;">
+                                Informations
                             </h5>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div id="conditions">
-                        <p *ngFor="let cond of conditions">
-                            <mat-radio-button [value]="1" (click)="filterusingcondition($event.target.innerText)">{{cond}}</mat-radio-button>
-                        </p>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> what is this? </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> who are we? </a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> Others platforms </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Who sponsored us? </a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> twitter updates </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Our partners </a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> versions history </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> News </a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> All videos </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Link to others sites </a>
+                </mat-expansion-panel>
 
-                    </div>
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Site reports
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> ADCH: 2009 - 2010 </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Arabic Grant: Oct 2009</a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> LTCS : Aug 2014 </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> MAA 2004 </a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> MAA : 2004 - 2006 </a>
 
                 </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Feedback
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="/feedbackform"> Feedback Form</a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Sign guestbook</a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> Contact us </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Email IT person </a>
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Bookmarks
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> Save to favourites</a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Save as google bookmarks</a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> RSS Feed </a>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Sharing/Social
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="/feedbackform"> Follow us on Twitter</a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Join us on Facebook</a>
+                    <a style="width: 95%;" class="btn btn-outline-primary" routerLink="#"> Share on Digg </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Share on Reddit </a>
+                    <a style="width: 95%; margin-top: 5px;" class="btn btn-outline-primary" routerLink="#"> Share on LinkedIn </a>
+
+                </mat-expansion-panel>
+
             </mat-accordion>
 
         </div>

@@ -1,0 +1,147 @@
+<div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <img id="topimage" class="image" src="assets/images/physioex.jpg" alt="">
+        </div>
+    </div>
+    <div id="homePage" class="row">
+        <div class="col-sm-4">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                search
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>
+                        <input class="form-control" ngModel #query="ngModel" (keyup)="filter(query.value)" type="text" placeholder="Enter keywords here">
+                    </p>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                conditions
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <div id="scrolling">
+                            <div *ngFor="let item of conditions">
+                                <input type="radio" name="age" value="{{item}}" (change)="filterusingcondition($event.target.value)">{{item}}
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Exercise difficulty
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <ul class="checkbox-items">
+                            <li *ngFor="let item of difficultiesCheckboxDataList">
+                                <input type="checkbox" [(ngModel)]="item.isChecked" (change)="filterUsingDifficulty()">{{item.label}}
+                            </li>
+                        </ul>
+                    </div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Equipment available
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <ul class="checkbox-items">
+                            <li *ngFor="let item of equipmentCheckboxDataList">
+                                <input type="checkbox" [(ngModel)]="item.isChecked" (change)="filterUsingEquipment()">{{item.label}}
+                            </li>
+                        </ul>
+                    </div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Exercise type
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <ul class="checkbox-items">
+                            <li *ngFor="let item of exerciseCheckboxDataList">
+                                <input type="checkbox" [(ngModel)]="item.isChecked" (change)="filterUsingExercise()">{{item.label}}
+                            </li>
+                        </ul>
+                    </div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Body part
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <ul class="checkbox-items">
+                            <li *ngFor="let item of bodyCheckboxDataList">
+                                <input type="checkbox" [(ngModel)]="item.isChecked" (change)="filterUsingBody()">{{item.label}}
+                            </li>
+                        </ul>
+                    </div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Age category
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <div *ngFor="let item of ageCategories">
+                            <input type="radio" name="age" value="{{item}}" (change)="filterUsingAge($event.target.value)">{{item}}
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel style="margin-top: 5px;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h5 style="margin-left: 30%;">
+                                Image orientation
+                            </h5>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div id="scrolling">
+                        <div *ngFor="let item of imageOrienCategories">
+                            <input type="radio" name="age" value="{{item}}" (change)="filterUsingImageOrien($event.target.value)">{{item}}
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+
+            </mat-accordion>
+
+        </div>
+        <div class="col-sm-8">
+            <p>here search section navbar content</p>
+        </div>
+    </div>
+
+</div>
