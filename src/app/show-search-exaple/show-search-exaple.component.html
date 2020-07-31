@@ -1,1 +1,100 @@
-<p>show-search-exaple works!</p>
+<div class="row">
+    <div style="margin-top: 5px;" class="col-sm-3">
+        <div class="col-sm-12">
+            <img id="topimage" class="image" src="assets/images/physioex.jpg" alt="">
+        </div>
+
+        <mat-accordion style="margin-top: 10px;">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h5 style="margin-left: 10%;">
+                            search
+                        </h5>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div id="scrolling">
+                    <div id="scrolling">
+                        <div *ngFor="let item of searchexercises">
+                            <input type="radio" name="age" value="{{item}}" (change)="exerciseFilter($event.target.value)">{{item}}
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+    </div>
+    <div class="col-sm-9">
+        <app-navbar></app-navbar>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card mb-3" style="width: 100%;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="card-img-left" src="assets/images/physioex.jpg">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">C1-C4: stretch</h5>
+                                <p class="card-text">Sam has completed his C4 tetraplenia. He sits his wheelchiar all day long and unable to move his arms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card mb-3" style="width: 100%;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="card-img-left" src="assets/images/physioex.jpg">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">C1-C4: stretch</h5>
+                                <p class="card-text">Sam has completed his C4 tetraplenia. He sits his wheelchiar all day long and unable to move his arms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card mb-3" style="width: 100%;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="card-img-left" src="assets/images/physioex.jpg">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">C1-C4: stretch</h5>
+                                <p class="card-text">Sam has completed his C4 tetraplenia. He sits his wheelchiar all day long and unable to move his arms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card mb-3" style="width: 100%;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="card-img-left" src="assets/images/physioex.jpg">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">C1-C4: stretch</h5>
+                                <p class="card-text">Sam has completed his C4 tetraplenia. He sits his wheelchiar all day long and unable to move his arms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

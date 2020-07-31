@@ -19,6 +19,8 @@ import { SearchComponent } from './search/search.component';
 import { ShowSearchExapleComponent } from './show-search-exaple/show-search-exaple.component';
 import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     SearchComponent,
     ShowSearchExapleComponent,
     FeedBackFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { NavbarComponent } from './navbar/navbar.component';
       {path:'', component: HomeComponent},
       {path:'searchforexercise', component: SearchComponent},
       {path: 'showsearchexample', component: ShowSearchExapleComponent},
-      {path: 'feedbackform', component: FeedBackFormComponent}
+      {path: 'feedbackform', component: FeedBackFormComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'login', component: LoginComponent}
     ])
   ],
   providers: [],

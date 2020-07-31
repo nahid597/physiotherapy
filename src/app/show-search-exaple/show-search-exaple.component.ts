@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowSearchExapleComponent implements OnInit {
 
+  searchexercises=[
+    "Spinal cord Injuery",
+    "Whiplash"
+  ];
+
   constructor() { }
+
+  exerciseFilter(f)
+  {
+    console.log(f);
+  }
 
   ngOnInit() {
   }

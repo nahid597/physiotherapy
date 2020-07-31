@@ -1,0 +1,28 @@
+<app-navbar>
+</app-navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+            <h5 style="margin-top: 5%;">Please Enter Login Informations</h5>
+            <form #f="ngForm" (ngSubmit)="Login(f.value)" style="margin-top: 15%;">
+                <div>
+                    <label for="Email"> <b>Email</b> </label>
+                    <input id="Email" class="form-control" type="text" placeholder="Enter Email" ngModel name="Email" #email="ngModel">
+                </div>
+                <div>
+                    <label for="Passwort"> <b>Passwort</b> </label>
+                    <input id="Passwort" class="form-control" type="password" ngModel name="Passwort" #Passwort="ngModel" placeholder="Enter Passwort">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Login</button>
+            </form>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+    </div>
+</div>

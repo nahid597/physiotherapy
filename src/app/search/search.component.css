@@ -26,3 +26,8 @@
     height: 150px;
     overflow-y: auto;
 }
+
+.card-img-left {
+    height: 100%;
+    width: 100%;
+}
