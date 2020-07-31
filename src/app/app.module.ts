@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { ShowSearchExapleComponent } from './show-search-exaple/show-search-exaple.component';
 import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component
     HomeComponent,
     SearchComponent,
     ShowSearchExapleComponent,
-    FeedBackFormComponent
+    FeedBackFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

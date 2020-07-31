@@ -7,22 +7,33 @@
     margin: 10px;
 }
 
-#searchbutton {
+.container {
+    position: relative;
     width: 100%;
+    max-width: 400px;
 }
 
-#searchsection {
-    width: 100%;
+.container img {
+    width: 80%;
+    height: auto;
 }
 
-#conditions {
-    width: 100%;
-    height: 300px;
-    overflow-y: auto;
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(72, 84, 114);
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
 }
 
-#scrolling {
-    width: 100%;
-    height: 150px;
-    overflow-y: auto;
+.container .btn:hover {
+    background-color: black;
 }
