@@ -10,6 +10,7 @@ import { AuthServicesService } from '../auth-services.service';
 })
 export class LoginComponent implements OnInit {
 
+  public isAuthenticate = true;
   constructor(private router: Router, public authService: AuthServicesService) { }
 
   Login(f)
@@ -20,16 +21,9 @@ export class LoginComponent implements OnInit {
    }
 
    this.authService.userLogin(f.EmailName, f.Passwort);
-   const check = this.authService.getAuthStatusListenar();
 
-   if(check)
-   {
-      console.log("nahidf sdf");
-     this.router.navigate(['/']);
-   }
-    else{
-      this.router.navigate(['/login']);
-    }
+   this.isAuthenticate = this.authService.getAuth();
+
   }
 
   test(f)
@@ -38,6 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+   
   }
 
 }

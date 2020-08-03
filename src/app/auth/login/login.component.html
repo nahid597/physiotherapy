@@ -8,16 +8,17 @@
         </div>
         <div class="col-sm-6">
             <h5 style="margin-top: 5%;">Please Enter Login Informations</h5>
+            <p class="alert alert-danger" *ngIf="!isAuthenticate">Email or password is wrong</p>
             <form #f="ngForm" (ngSubmit)="Login(f.value)" style="margin-top: 15%;">
                 <div>
                     <label for="Email"> <b>Email</b> </label>
                     <input id="Email" class="form-control" type="emai'" placeholder="Enter Email" required ngModel name="EmailName" #email="ngModel" (click)="test(email)">
-                    <p class="alert alert-danger" *ngIf="email.invalid && email.touched">Please entr valid emial</p>
+                    <p class="alert alert-danger" *ngIf="email.invalid && email.touched">Please enter valid emial</p>
                 </div>
                 <div>
-                    <label for="Passwort"> <b>Passwort</b> </label>
-                    <input id="Passwort" class="form-control" required type="password" required ngModel name="Passwort" #Passwort="ngModel" placeholder="Enter Passwort">
-                    <p class="alert alert-danger" *ngIf="Passwort.invalid && Passwort.touched">Please entr valid password</p>
+                    <label for="Passwort"> <b>Password</b> </label>
+                    <input id="Passwort" class="form-control" required type="password" required ngModel name="Passwort" #Passwort="ngModel" placeholder="Enter Password">
+                    <p class="alert alert-danger" *ngIf="Passwort.invalid && Passwort.touched">Please enter valid password</p>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Login</button>

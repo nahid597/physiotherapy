@@ -25,6 +25,10 @@ export class AuthServicesService {
     return this.authStatusListenar.asObservable();
   }
 
+  getAuth(){
+    return this.userIsAuthenticate;
+  }
+
   userSignup(post: authUserModel )
   {
       const postData = {
@@ -58,12 +62,13 @@ export class AuthServicesService {
       const token = response.token;
       console.log(response);
 
+      this.token = token;
+
         if(token)
         {
-          alert("successfully login");
           this.userIsAuthenticate = true;
-          this.token = token;
           this.authStatusListenar.next(true);
+          this.router.navigate(['/']);
         }
     });
 
@@ -72,6 +77,7 @@ export class AuthServicesService {
   logout()
   {
      this.token = null;
+     this.userIsAuthenticate = false;
      this.authStatusListenar.next(false);
   }
 
