@@ -21,7 +21,8 @@ import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
-
+import { AuthServicesService } from './auth/auth-services.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { LoginComponent } from './auth/login/login.component';
     MatExpansionModule,
     MatRadioModule,
     MatCheckboxModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path:'', component: HomeComponent},
       {path:'searchforexercise', component: SearchComponent},
@@ -56,7 +58,9 @@ import { LoginComponent } from './auth/login/login.component';
       {path: 'login', component: LoginComponent}
     ])
   ],
-  providers: [],
+  providers: [
+    AuthServicesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
