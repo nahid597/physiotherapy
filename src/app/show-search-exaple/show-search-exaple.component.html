@@ -29,7 +29,7 @@
         <br>
 
         <div class="row">
-            <ng-container *ngFor="let post of posts; let i = index">
+            <ng-container *ngFor="let post of filterPost; let i = index">
                 <div class="col">
                     <div id="scrolling" class="card" style="width: 18rem; height: 20rem; margin-top: 10px;">
                         <img class="card-img-left" [src]="post.imagePath" alt="{{post.title}}">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../posts/post.model';
+import { PostService } from '../posts/post.service';
 
 @Component({
   selector: 'app-search',
@@ -6,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+
+  public posts: Post[] = [];
+  public filterPost: Post[] = [];
+  public copyPost: Post[] = [];
+  public copyConditionPost: Post[] = [];
+  public copySelelctConditionPost: Post[] = [];
+
 
   seletedValue = "nahid";
   panelOpenState = false;
@@ -26,19 +36,16 @@ export class SearchComponent implements OnInit {
 
   //condition set
   conditions = [
-    "C1 C4 treatering",
-    "C5 tetraplegina",
-    "C6 tetraplegina",
-    "C1 C4 treatering",
-    "C5 tetraplegina",
-    "C6 tetraplegina",
-    "C1 C4 treatering",
-    "C5 tetraplegina",
-    "C6 tetraplegina",
-    "C1 C4 treatering",
-    "C5 tetraplegina",
-    "C6 tetraplegina",
-
+    "C1-C4 Tetraplegia",
+    "C5 Tetraplegia",
+    "C6 Tetraplegia",
+    "C7-C8 Tetraplegia",
+    "Traumatic brain injury",
+    "Stroke",
+    "Motor delay",
+    "Hand injury",
+    "Whiplash",
+    "Burn injuries",
   ];
 
   difficulties = [
@@ -239,17 +246,26 @@ export class SearchComponent implements OnInit {
     },
   ];
 
-  constructor() {
+  constructor(private postService: PostService) {
     
    }
 
   filter(query: string)
   {
     console.log(query);
+    this.filterPost = (query) ?
+    this.copySelelctConditionPost.filter((data) => data.title.toLowerCase().includes(query.toLowerCase())):
+    this.copySelelctConditionPost;
   }
 
   filterusingcondition(option: string){
     console.log(option);
+
+    this.filterPost= (option) ?
+    this.copyConditionPost.filter((data) => data.title.toLowerCase().includes(option.toLowerCase())):
+    this.copyConditionPost;
+    this.copySelelctConditionPost = this.filterPost;
+
   }
 
   filterUsingAge(option: string)
@@ -313,6 +329,14 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.fetchSelectedItems(this.difficultiesCheckboxDataList,this.diffcultiesSelectedItemsList);
     this.fetchCheckedIDs(this.difficultiesCheckboxDataList)
+    //for filter and display data
+    this.postService.getpost();
+    this.postService.getPostsUpdateListener().subscribe((posts: Post[]) => {
+      this.filterPost = this.posts = posts;
+      this.copyPost = this.filterPost;
+      this.copyConditionPost = this.filterPost;
+      this.copySelelctConditionPost = this.filterPost;
+    });
   }
 
 

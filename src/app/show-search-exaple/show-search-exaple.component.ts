@@ -10,6 +10,8 @@ import { PostService } from '../posts/post.service';
 export class ShowSearchExapleComponent implements OnInit {
 
   public posts: Post[] = [];
+  public filterPost: Post[] = [];
+  public copyPost: Post[] = [];
 
   constructor(private postService: PostService) { }
 
@@ -19,15 +21,28 @@ export class ShowSearchExapleComponent implements OnInit {
   ];
 
 
-  exerciseFilter(f)
+  exerciseFilter(filterData: string)
   {
-    console.log(f);
+     console.log(filterData);
+
+     if(filterData == "Spinal cord Injuery")
+     {
+       this.filterPost = this.posts;
+       this.copyPost = this.filterPost;
+     }
+     else{
+        this.filterPost = (filterData) ?
+        this.posts.filter((data) => data.title.toLowerCase().includes(filterData.toLowerCase())):
+        this.posts;
+        this.copyPost = this.filterPost;
+     }
   }
 
   ngOnInit() {
     this.postService.getpost();
     this.postService.getPostsUpdateListener().subscribe((posts: Post[]) => {
-      this.posts = posts;
+      this.filterPost = this.posts = posts;
+      this.copyPost = this.filterPost;
     });
 
   }

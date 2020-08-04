@@ -31,6 +31,7 @@
                     </mat-expansion-panel-header>
                     <div id="scrolling">
                         <div id="scrolling">
+                            <b>spinal cord injuery</b>
                             <div *ngFor="let item of conditions">
                                 <input type="radio" name="age" value="{{item}}" (change)="filterusingcondition($event.target.value)">{{item}}
                             </div>
@@ -141,24 +142,25 @@
         </div>
         <div class="col-sm-8">
             <app-navbar></app-navbar>
-            <h3>search result show in here</h3>
-            <div style="height: 250px;" class="row">
-                <div class="col-sm-4">
-                    <div class="card mb-3" style="width: 100%;">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img class="card-img-left" src="assets/images/physioex.jpg">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">C1-C4: stretch</h5>
-                                    <p class="card-text">Sam has completed his C4 tetraplenia. He sits his wheelchiar all day long and unable to move his arms.</p>
-                                </div>
-                            </div>
+
+            <div id="scollingsearchresult" class="row">
+                <div *ngFor="let post of filterPost; let i = index">
+                    <img class="card-img-test" [src]="post.imagePath" alt="{{post.title}}">
+                </div>
+
+            </div>
+
+            <!-- <div class="row">
+                <ng-container *ngFor="let post of filterPost; let i = index">
+                    <div class="col">
+                        <div class="card" style="width: 10rem; height: 100px; margin-top: 10px;">
+                            <img class="card-img-left" [src]="post.imagePath" alt="{{post.title}}">
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div *ngIf="(i+1)% 5 === 0" class="w-100"></div>
+                </ng-container>
+            </div> -->
+
         </div>
     </div>
 
