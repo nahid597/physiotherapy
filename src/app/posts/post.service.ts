@@ -47,7 +47,7 @@ export class PostService {
 
        this.posts.push(posts);
        this.postsUpdated.next([...this.posts]);
-       this.router.navigate(['/']);
+      // this.router.navigate(['/']);
      })
   }
 
