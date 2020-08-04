@@ -1,0 +1,35 @@
+<app-navbar>
+</app-navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+            <h5 style="margin-top: 5%;">Add new Post</h5>
+            <form #f="ngForm" (ngSubmit)="onSavePost(f.value)" style="margin-top: 10%;">
+                <div>
+                    <label for="title"> <b>Title</b> </label>
+                    <input id="title" class="form-control" type="text" placeholder="Enter title" required ngModel name="title" #title="ngModel">
+                    <p class="alert alert-danger" *ngIf="title.invalid && title.touched">Enter title</p>
+                </div>
+
+                <div style="margin: 5px;">
+                    <input ngModel name="image" (change)="selectImage($event)" #image="ngModel" type="file">
+                </div>
+                <div>
+                    <label for="details"> <b>Details</b> </label>
+                    <textarea name="details" id="details" required ngModel name="details" #details="ngModel" placeholder="write details" rows="10"></textarea>
+                    <!-- <input id="details" class="form-control" required type="text" required ngModel name="details" #details="ngModel" placeholder="write details"> -->
+                    <p class="alert alert-danger" *ngIf="details.invalid && details.touched"> Write details</p>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Add</button>
+            </form>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+    </div>
+</div>

@@ -1,7 +1,8 @@
+import { PostService } from './posts/post.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {NgbModule,NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +12,16 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import {MatExpansionModule, MatExpansionPanelDescription} from '@angular/material/expansion';
 import {MatRadioModule, MatRadioButton} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+
+import{
+   MatCardModule,
+   MatButtonModule,
+   MatToolbarModule,
+   MatProgressSpinnerModule,
+   MatPaginatorModule,
+   MatDialogModule,
+
+  } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +34,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthServicesService } from './auth/auth-services.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     FeedBackFormComponent,
     NavbarComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -49,17 +62,26 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatCheckboxModule,
     HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path:'', component: HomeComponent},
       {path:'searchforexercise', component: SearchComponent},
       {path: 'showsearchexample', component: ShowSearchExapleComponent},
       {path: 'feedbackform', component: FeedBackFormComponent},
       {path: 'signup', component: SignupComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {path: 'createpost', component: CreatePostComponent}
     ])
   ],
   providers: [
-    AuthServicesService
+    AuthServicesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

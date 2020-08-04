@@ -19,6 +19,9 @@
         <a routerLink="/signup" ngbNavLink>Sign up</a>
     </li>
     <li *ngIf="userIsAuthenticate" ngbNavItem style="text-align: right;">
+        <a routerLink="/createpost" ngbNavLink>New post</a>
+    </li>
+    <li *ngIf="userIsAuthenticate" ngbNavItem style="text-align: right;">
         <button id="logout" (click)="logout()">Logout</button>
     </li>
 </ul>

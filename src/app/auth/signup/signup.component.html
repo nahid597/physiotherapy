@@ -21,14 +21,14 @@
                 <p class="alert alert-danger" *ngIf="EmailName.touched && !EmailName.valid">Email Name required</p>
             </div>
             <div class="form-group">
-                <label for="Passwort"><b>Passwort</b> </label>
+                <label for="Passwort"><b>Password</b> </label>
                 <input required ngModel name="Passwort" #Passwort="ngModel" type="password" placeholder="Enter password" class="form-control" id="password" aria-describedby="Passwort">
-                <p class="alert alert-danger" *ngIf="Passwort.touched && !Passwort.valid">Passwort required</p>
+                <p class="alert alert-danger" *ngIf="Passwort.touched && !Passwort.valid">Password required</p>
             </div>
             <div class="form-group">
-                <label for="confirmPasswort"><b>confirmPasswort</b> </label>
+                <label for="confirmPasswort"><b>confirmPassword</b> </label>
                 <input required ngModel name="confirmPasswort" #confirmPasswort="ngModel" type="password" placeholder="Enter password" class="form-control" id="password" aria-describedby="confirmPasswort">
-                <p class="alert alert-danger" *ngIf="confirmPasswort.touched && !confirmPasswort.valid">confirmPasswort required</p>
+                <p class="alert alert-danger" *ngIf="confirmPasswort.touched && !confirmPasswort.valid">confirmPassword required</p>
             </div>
         </div>
 
