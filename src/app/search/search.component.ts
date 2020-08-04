@@ -15,6 +15,8 @@ export class SearchComponent implements OnInit {
   public copyPost: Post[] = [];
   public copyConditionPost: Post[] = [];
   public copySelelctConditionPost: Post[] = [];
+  public copyExerciseDifPost: Post[] = [];
+  public storePost: Post[] = [];
 
 
   seletedValue = "nahid";
@@ -254,8 +256,8 @@ export class SearchComponent implements OnInit {
   {
     console.log(query);
     this.filterPost = (query) ?
-    this.copySelelctConditionPost.filter((data) => data.title.toLowerCase().includes(query.toLowerCase())):
-    this.copySelelctConditionPost;
+    this.copyPost.filter((data) => data.title.toLowerCase().includes(query.toLowerCase())):
+    this.copyPost;
   }
 
   filterusingcondition(option: string){
@@ -265,6 +267,12 @@ export class SearchComponent implements OnInit {
     this.copyConditionPost.filter((data) => data.title.toLowerCase().includes(option.toLowerCase())):
     this.copyConditionPost;
     this.copySelelctConditionPost = this.filterPost;
+    this.copyPost = this.filterPost;
+
+    // for(var post of this.filterPost)
+    // {
+    //   this.storePost.push(post);
+    // }
 
   }
 
@@ -297,15 +305,36 @@ export class SearchComponent implements OnInit {
 
   showCheckData()
   {
-      for(var check of this.diffficultiesCheckedvalue )
-      {
-        console.log(check);
-      }
+      // for(var check of this.diffficultiesCheckedvalue )
+      // {
+      //   console.log(check);
+      // }
   }
 
   filterUsingDifficulty() {
     this.diffcultiesSelectedItemsList =  this.fetchSelectedItems(this.difficultiesCheckboxDataList,this.diffcultiesSelectedItemsList);
     this.fetchCheckedIDs(this.difficultiesCheckboxDataList);
+  
+    this.filterPost = [];
+    this.storePost = [];
+
+    for(var check of this.diffficultiesCheckedvalue )
+    {
+        console.log("nahid:" + check);
+        this.storePost = (check) ?
+        this.copyExerciseDifPost.filter((data) => data.title.toLowerCase().includes(check.toLowerCase())):
+        this.copyExerciseDifPost;
+        
+        for(var post of this.storePost)
+        {
+          console.log(post);
+          this.filterPost.push(post);
+        }
+        //this.copyPost.push();
+    }
+    
+    this.copyPost = this.filterPost;
+
   }
 
   filterUsingEquipment()
@@ -336,6 +365,7 @@ export class SearchComponent implements OnInit {
       this.copyPost = this.filterPost;
       this.copyConditionPost = this.filterPost;
       this.copySelelctConditionPost = this.filterPost;
+      this.copyExerciseDifPost = this.filterPost;
     });
   }
 
