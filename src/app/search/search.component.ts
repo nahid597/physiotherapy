@@ -17,6 +17,11 @@ export class SearchComponent implements OnInit {
   public copySelelctConditionPost: Post[] = [];
   public copyExerciseDifPost: Post[] = [];
   public storePost: Post[] = [];
+  public storeEquipmentPost: Post[] = [];
+  public storeExercisePost: Post[] = [];
+  public storeBodyPartPost: Post[] = [];
+  public storeAgePost: Post[] = [];
+  public storeImagePost: Post[] = [];
 
 
   seletedValue = "nahid";
@@ -97,7 +102,7 @@ export class SearchComponent implements OnInit {
     },
     {
       id: 'C002',
-      label: 'Weights maching',
+      label: 'Weights machine',
       isChecked: false
     },
     {
@@ -106,42 +111,32 @@ export class SearchComponent implements OnInit {
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C004',
       label: 'Theraband',
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C005',
       label: 'Step/block',
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C006',
       label: 'Standing equipment',
       isChecked: false
     },
     {
-      id: 'C003',
-      label: 'splints',
+      id: 'C007',
+      label: 'Splints',
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C008',
       label: 'Plinth',
       isChecked: false
     },
     {
-      id: 'C003',
-      label: 'Standing equipment',
-      isChecked: false
-    },
-    {
-      id: 'C003',
-      label: 'cycle ergometer',
-      isChecked: false
-    },
-    {
-      id: 'C003',
+      id: 'C009',
       label: 'Stool/chair',
       isChecked: false
     },
@@ -164,45 +159,31 @@ export class SearchComponent implements OnInit {
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C004',
       label: 'Control extercise',
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C005',
       label: 'Amplitue exercise',
       isChecked: false
     },
     {
-      id: 'C003',
+      id: 'C006',
       label: 'Clearing secrections',
       isChecked: false
     },
     {
-      id: 'C003',
-      label: 'splints',
+      id: 'C007',
+      label: 'Transferring',
       isChecked: false
     },
     {
-      id: 'C003',
-      label: 'Plinth',
+      id: 'C008',
+      label: 'Mobilising in wheelchair',
       isChecked: false
     },
-    {
-      id: 'C003',
-      label: 'Standing equipment',
-      isChecked: false
-    },
-    {
-      id: 'C003',
-      label: 'cycle ergometer',
-      isChecked: false
-    },
-    {
-      id: 'C003',
-      label: 'Tranferring',
-      isChecked: false
-    },
+    
   ];
 
   bodyCheckboxDataList = [
@@ -222,30 +203,25 @@ export class SearchComponent implements OnInit {
       isChecked: false
     },
     {
-      id: 'C003',
-      label: 'Amplitue exercise',
+      id: 'C004',
+      label: 'Wrist/hand',
       isChecked: false
     },
     {
-      id: 'C003',
-      label: 'Clearing secrections',
-      isChecked: false
-    },
-    {
-      id: 'C003',
-      label: 'splints',
-      isChecked: false
-    },
-    {
-      id: 'C003',
-      label: 'Plinth',
-      isChecked: false
-    },
-    {
-      id: 'C003',
+      id: 'C005',
       label: 'Hip/thigh',
       isChecked: false
     },
+    {
+      id: 'C006',
+      label: 'Knee/thigh',
+      isChecked: false
+    },
+    {
+      id: 'C007',
+      label: 'Whole body',
+      isChecked: false
+    }
   ];
 
   constructor(private postService: PostService) {
@@ -279,10 +255,22 @@ export class SearchComponent implements OnInit {
   filterUsingAge(option: string)
   {
     console.log(option);
+
+    this.filterPost= (option) ?
+    this.storeAgePost.filter((data) => data.title.toLowerCase().includes(option.toLowerCase())):
+    this.storeAgePost;
+    // this.storeAgePost = this.filterPost;
+    this.copyPost = this.filterPost;
   }
   filterUsingImageOrien(option: string)
   {
     console.log(option);
+
+    this.filterPost= (option) ?
+    this.storeImagePost.filter((data) => data.title.toLowerCase().includes(option.toLowerCase())):
+    this.storeImagePost;
+    // this.storeAgePost = this.filterPost;
+    this.copyPost = this.filterPost;
   }
 
   fetchSelectedItems(checboxDataList, selecItemList) {
@@ -300,15 +288,6 @@ export class SearchComponent implements OnInit {
         //console.log(value.label);
       }
     });
-    this.showCheckData();
-  }
-
-  showCheckData()
-  {
-      // for(var check of this.diffficultiesCheckedvalue )
-      // {
-      //   console.log(check);
-      // }
   }
 
   filterUsingDifficulty() {
@@ -317,6 +296,8 @@ export class SearchComponent implements OnInit {
   
     this.filterPost = [];
     this.storePost = [];
+
+    console.log(this.diffcultiesSelectedItemsList.length);
 
     for(var check of this.diffficultiesCheckedvalue )
     {
@@ -327,13 +308,22 @@ export class SearchComponent implements OnInit {
         
         for(var post of this.storePost)
         {
-          console.log(post);
+          //console.log(post);
           this.filterPost.push(post);
         }
         //this.copyPost.push();
     }
+
+    if(this.diffcultiesSelectedItemsList.length == 0)
+    {
+      this.copyPost = this.copyExerciseDifPost;
+      this.filterPost = this.copyPost;
+    }
+    else
+    {
+      this.copyPost = this.filterPost;
+    }
     
-    this.copyPost = this.filterPost;
 
   }
 
@@ -341,18 +331,106 @@ export class SearchComponent implements OnInit {
   {
     this.equipmentSelectedItemsList =  this.fetchSelectedItems(this.equipmentCheckboxDataList,this.equipmentSelectedItemsList);
     this.fetchCheckedIDs(this.equipmentCheckboxDataList);
+
+    this.filterPost = [];
+    this.storePost = [];
+
+    for(var check of this.diffficultiesCheckedvalue )
+    {
+       // console.log("nahid:" + check);
+        this.storePost = (check) ?
+        this.storeEquipmentPost.filter((data) => data.title.toLowerCase().includes(check.toLowerCase())):
+        this.storeEquipmentPost;
+        
+        for(var post of this.storePost)
+        {
+          //console.log(post);
+          this.filterPost.push(post);
+        }
+        //this.copyPost.push();
+    }
+    // this.copyPost = this.filterPost;
+
+    // console.log(this.diffficultiesCheckedvalue .length);
+
+    if(this.diffficultiesCheckedvalue .length == 0)
+    {
+      this.copyPost = this.storeEquipmentPost;
+      this.filterPost = this.copyPost;
+    }
+    else
+    {
+      this.copyPost = this.filterPost;
+    }
+
   }
 
   filterUsingExercise()
   {
     this.exerciseSelectedItemsList =  this.fetchSelectedItems(this.exerciseCheckboxDataList,this.exerciseSelectedItemsList);
     this.fetchCheckedIDs(this.exerciseCheckboxDataList);
+
+    this.filterPost = [];
+    this.storePost = [];
+
+    for(var check of this.diffficultiesCheckedvalue )
+    {
+       // console.log("nahid:" + check);
+        this.storePost = (check) ?
+        this.storeExercisePost.filter((data) => data.title.toLowerCase().includes(check.toLowerCase())):
+        this.storeExercisePost;
+        
+        for(var post of this.storePost)
+        {
+          //console.log(post);
+          this.filterPost.push(post);
+        }
+        //this.copyPost.push();
+    }
+
+    if(this.diffficultiesCheckedvalue.length == 0)
+    {
+      this.copyPost = this.storeExercisePost;
+      this.filterPost = this.copyPost;
+    }
+    else
+    {
+      this.copyPost = this.filterPost;
+    }
   }
 
   filterUsingBody()
   {
     this.bodySelectedItemsList =  this.fetchSelectedItems(this.bodyCheckboxDataList,this.bodySelectedItemsList);
     this.fetchCheckedIDs(this.bodyCheckboxDataList);
+
+    this.filterPost = [];
+    this.storePost = [];
+
+    for(var check of this.diffficultiesCheckedvalue )
+    {
+       // console.log("nahid:" + check);
+        this.storePost = (check) ?
+        this.storeBodyPartPost.filter((data) => data.title.toLowerCase().includes(check.toLowerCase())):
+        this.storeBodyPartPost;
+        
+        for(var post of this.storePost)
+        {
+          //console.log(post);
+          this.filterPost.push(post);
+        }
+        //this.copyPost.push();
+    }
+
+    if(this.bodySelectedItemsList.length == 0)
+    {
+      this.copyPost = this.storeExercisePost;
+      this.filterPost = this.copyPost;
+    }
+    else
+    {
+      this.copyPost = this.filterPost;
+    }
   }
 
   ngOnInit() {
@@ -366,6 +444,11 @@ export class SearchComponent implements OnInit {
       this.copyConditionPost = this.filterPost;
       this.copySelelctConditionPost = this.filterPost;
       this.copyExerciseDifPost = this.filterPost;
+      this.storeEquipmentPost = this.filterPost;
+      this.storeExercisePost = this.filterPost;
+      this.storeBodyPartPost = this.filterPost;
+      this.storeAgePost = this.filterPost;
+      this.storeImagePost = this.filterPost;
     });
   }
 
