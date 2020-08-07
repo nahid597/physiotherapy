@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-import {NgbModule,NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgTdvModule } from 'ng-tdv';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
@@ -69,6 +70,7 @@ import { CreatePostComponent } from './posts/create-post/create-post.component';
     MatPaginatorModule,
     MatDialogModule,
     ReactiveFormsModule,
+    NgTdvModule,
     RouterModule.forRoot([
       {path:'', component: HomeComponent},
       {path:'searchforexercise', component: SearchComponent},
